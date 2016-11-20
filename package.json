@@ -1,0 +1,25 @@
+{
+  "name": "babel-plugin-date-fns",
+  "description": "",
+  "keywords": ["babel-plugin", "cherry-pick", "date-fns"],
+  "version": "0.0.0",
+  "author": "Brian Ng <bng412@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "prepublish": "npm run build",
+    "test": "mocha --check-leaks --compilers js:babel-core/register"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "babel-preset-latest": "^6.16.0",
+    "date-fns": "^1.10.0",
+    "mocha": "^3.1.2"
+  },
+  "files": [
+    "lib"
+  ]
+}
