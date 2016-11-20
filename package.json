@@ -2,7 +2,7 @@
   "name": "babel-plugin-date-fns",
   "description": "",
   "keywords": ["babel-plugin", "cherry-pick", "date-fns"],
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Brian Ng <bng412@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
