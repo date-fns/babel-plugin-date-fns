@@ -1,29 +1,36 @@
 import assert from 'assert';
+import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
 import plugin from '../src/index';
 import { transformFileSync } from 'babel-core';
 
-describe('cherry-pick', () => {
-  it('should transform to cherry-pick modules', () => {
-    const actualPath = path.join(__dirname, 'feature/actual.js');
-    const expectedPath = path.join(__dirname, 'feature/expected.js');
+const getTestName = testPath => path.basename(testPath).split('-').join(' ');
 
-    const actual = transformFileSync(actualPath, {
-      'plugins': [plugin],
-    }).code;
-    const expected = fs.readFileSync(expectedPath, 'utf8');
+describe('cherry-picked modular builds', () => {
+  glob.sync(path.join(__dirname, 'fixtures/*/')).forEach((testPath) => {
+    const testName = getTestName(testPath);
+    const actualPath = path.join(testPath, 'actual.js');
+    const expectedPath = path.join(testPath, 'expected.js');
 
-    assert.strictEqual(actual.trim(), expected.trim());
+    it(`should work with ${testName}`, () => {
+      const actual = transformFileSync(actualPath, {
+        plugins: [plugin],
+      }).code;
+      const expected = fs.readFileSync(expectedPath, 'utf8');
+
+      assert.strictEqual(actual.trim(), expected.trim());
+    });
   });
 
-  it('should throw an error if module not found', () => {
-    const errorPath = path.join(__dirname, 'error/actual.js');
+  glob.sync(path.join(__dirname, 'error-fixtures/*/')).forEach((testPath) => {
+    const testName = getTestName(testPath);
+    const actualPath = path.join(testPath, 'actual.js');
 
-    assert.throws(function() {
-      transformFileSync(errorPath, {
-        'plugins': [plugin],
-      });
+    it(`should throw an error with ${testName}`, () => {
+      assert.throws(() => transformFileSync(actualPath, {
+        plugins: [plugin],
+      }));
     });
   });
 });
