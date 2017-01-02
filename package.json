@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Brian Ng <bng412@gmail.com>",
   "license": "MIT",
+  "repository": "https://github.com/date-fns/babel-plugin-date-fns",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
