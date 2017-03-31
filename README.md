@@ -10,14 +10,44 @@ $ npm i --save-dev babel-plugin-date-fns
 ## Example
 
 Transforms
+
 ```js
 import { distanceInWordsToNow, differenceInYears, format } from 'date-fns';
 ```
+
 roughly to
+
 ```js
 import distanceInWordsToNow from 'date-fns/distanceInWordsToNow';
 import differenceInYears from 'date-fns/differenceInYears';
 import format from 'date-fns/format';
+```
+
+## Usage
+
+### .babelrc
+
+```json
+{
+  "plugins": ["date-fns"],
+  "presets": ["es2015"]
+}
+```
+
+### Webpack 2
+
+```js
+module: {
+  rules: [{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      presets: ['es2015'],
+      plugins: ['date-fns'],
+    },
+  }],
+}
 ```
 
 ## Thanks
