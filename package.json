@@ -14,7 +14,7 @@
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
     "prepublish": "npm run build",
-    "test": "mocha --check-leaks --compilers js:babel-core/register"
+    "test": "mocha --check-leaks --require babel-core/register"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -23,7 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "date-fns": "^1.10.0",
     "glob": "^7.1.1",
-    "mocha": "^3.1.2"
+    "mocha": "^5.2.0"
   },
   "files": [
     "lib"
