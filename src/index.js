@@ -1,27 +1,6 @@
-import fs from 'fs';
-import Module from 'module';
-import path from 'path';
-
-const _module = new Module();
-
-const modulePath = path.dirname(Module._resolveFilename('date-fns', {
-  ..._module,
-  paths: Module._nodeModulePaths(process.cwd()),
-}));
-
-const indexFile = fs.readFileSync(modulePath + '/index.js', 'utf-8');
-const regStr = '([\\S]+): require\\(\'.\\/([\\S]+)\\/index.js\'\\)';
-
-const regx = new RegExp(regStr);
-const globalRegx = new RegExp(regStr, 'g');
-
-const pkgMap = indexFile
-  .match(globalRegx)
-  .map(exp => exp.match(regx).slice(1))
-  .reduce((result, [pkgId, path]) => ({
-    ...result,
-    [pkgId]: path,
-  }), {});
+const importNameToFilename = (importName) => {
+  return 'date-fns/' + importName.replace(/([A-Z])/g, '_$1').toLowerCase();
+}
 
 export default ({ types: t }) => ({
   visitor: {
@@ -48,11 +27,7 @@ export default ({ types: t }) => ({
           const { name: importedName } = imported;
           spec = t.importDefaultSpecifier(t.identifier(localName));
 
-          if (!pkgMap[importedName]) {
-            throw new Error(`date-fns does not contain module "${importedName}"`);
-          }
-
-          importedPath = `date-fns/${pkgMap[importedName]}`;
+          importedPath = importNameToFilename(importedName);
         }
 
         path.insertAfter(t.importDeclaration([spec], t.stringLiteral(importedPath)));
