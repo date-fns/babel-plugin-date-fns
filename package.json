@@ -19,10 +19,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-tester": "^5.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "date-fns": "^1.10.0",
-    "glob": "^7.1.1",
+    "date-fns": "^1.29.0",
     "mocha": "^5.2.0"
   },
   "files": [
