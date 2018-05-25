@@ -1,7 +1,11 @@
 {
   "name": "babel-plugin-date-fns",
   "description": "",
-  "keywords": ["babel-plugin", "cherry-pick", "date-fns"],
+  "keywords": [
+    "babel-plugin",
+    "cherry-pick",
+    "date-fns"
+  ],
   "version": "0.1.0",
   "author": "Brian Ng <bng412@gmail.com>",
   "license": "MIT",
@@ -13,10 +17,10 @@
     "test": "mocha --check-leaks --compilers js:babel-core/register"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
-    "babel-plugin-transform-object-rest-spread": "^6.19.0",
-    "babel-preset-latest": "^6.16.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "date-fns": "^1.10.0",
     "glob": "^7.1.1",
     "mocha": "^3.1.2"
