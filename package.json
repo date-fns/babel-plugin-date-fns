@@ -22,7 +22,7 @@
     "babel-plugin-tester": "^5.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "date-fns": "^1.29.0",
+    "date-fns": "next",
     "mocha": "^5.2.0"
   },
   "files": [
