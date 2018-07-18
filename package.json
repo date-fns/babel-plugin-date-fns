@@ -16,9 +16,6 @@
     "prepare": "npm run build",
     "test": "mocha --check-leaks --require @babel/register"
   },
-  "dependencies": {
-    "lodash.snakecase": "^4.1.1"
-  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
@@ -26,7 +23,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.6.2",
     "babel-plugin-tester": "^6.2.1",
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.6.0",
     "mocha": "^6.2.2"
   },
   "files": [

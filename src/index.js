@@ -1,5 +1,3 @@
-const snakeCase = require('lodash.snakecase');
-
 export default ({ types: t }) => ({
   visitor: {
     ImportDeclaration(path) {
@@ -25,7 +23,7 @@ export default ({ types: t }) => ({
           const { name: importedName } = imported;
           spec = t.importDefaultSpecifier(t.identifier(localName));
 
-          importedPath = `date-fns/${snakeCase(importedName)}`;
+          importedPath = `date-fns/${importedName}`;
         }
 
         path.insertAfter(t.importDeclaration([spec], t.stringLiteral(importedPath)));

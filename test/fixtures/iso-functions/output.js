@@ -1,3 +1,3 @@
-import setISODay from "date-fns/set_iso_day";
-import getISODay from "date-fns/get_iso_day";
+import setISODay from "date-fns/setISODay";
+import getISODay from "date-fns/getISODay";
 var result = setISODay(new Date(2014, 8, 1), 7);

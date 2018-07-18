@@ -1,5 +1,7 @@
 # babel-plugin-date-fns
 
+> :warning: The current version (2.x) supports date-fns v2. If you are using v1, please use [1.x](https://github.com/date-fns/babel-plugin-date-fns/tree/v1).
+
 ## Install
 
 ```shell
@@ -12,15 +14,16 @@ $ npm i --save-dev babel-plugin-date-fns
 Transforms
 
 ```js
-import { distanceInWordsToNow, differenceInYears, format } from 'date-fns';
+import { differenceInYears, format, formatDistance } from "date-fns";
 ```
 
 roughly to
 
 ```js
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import differenceInYears from 'date-fns/difference_in_years';
-import format from 'date-fns/format';
+
+import differenceInYears from 'date-fns/differenceInYears';
+import format from "date-fns/format";
+import formatDistance from "date-fns/formatDistance";
 ```
 
 ## Usage
@@ -30,23 +33,27 @@ import format from 'date-fns/format';
 ```json
 {
   "plugins": ["date-fns"],
-  "presets": ["es2015"]
+  "presets": ["@babel/preset-env"]
 }
 ```
 
-### Webpack 2
+### Webpack
 
 ```js
 module: {
-  rules: [{
-    test: /\.js$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      presets: ['es2015'],
-      plugins: ['date-fns'],
-    },
-  }],
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['date-fns']
+        }
+      }
+    }
+  ]
 }
 ```
 
