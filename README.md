@@ -1,5 +1,7 @@
 # babel-plugin-date-fns
 
+> :warning: The current master is for v2 pre-release version of date-fns. [See the plugin of v1 version](https://github.com/date-fns/babel-plugin-date-fns/tree/v1).
+
 ## Install
 
 ```shell
