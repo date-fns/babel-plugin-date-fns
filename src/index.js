@@ -1,5 +1,5 @@
 const importNameToFilename = (importName) => {
-  return 'date-fns/' + importName.replace(/([A-Z])/g, '_$1').toLowerCase();
+  return 'date-fns/' + importName;
 }
 
 export default ({ types: t }) => ({
