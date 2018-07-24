@@ -1,6 +1,4 @@
-const importNameToFilename = (importName) => {
-  return 'date-fns/' + importName.replace(/([A-Z])/g, '_$1').toLowerCase();
-}
+const snakeCase = require('lodash.snakecase');
 
 export default ({ types: t }) => ({
   visitor: {
@@ -27,7 +25,7 @@ export default ({ types: t }) => ({
           const { name: importedName } = imported;
           spec = t.importDefaultSpecifier(t.identifier(localName));
 
-          importedPath = importNameToFilename(importedName);
+          importedPath = `date-fns/${snakeCase(importedName)}`;
         }
 
         path.insertAfter(t.importDeclaration([spec], t.stringLiteral(importedPath)));

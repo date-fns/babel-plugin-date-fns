@@ -16,6 +16,9 @@
     "prepublish": "npm run build",
     "test": "mocha --check-leaks --require babel-core/register"
   },
+  "dependencies": {
+    "lodash.snakecase": "^4.1.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
