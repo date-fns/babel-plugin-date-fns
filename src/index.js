@@ -1,7 +1,3 @@
-const importNameToFilename = (importName) => {
-  return 'date-fns/' + importName;
-}
-
 export default ({ types: t }) => ({
   visitor: {
     ImportDeclaration(path) {
@@ -27,7 +23,7 @@ export default ({ types: t }) => ({
           const { name: importedName } = imported;
           spec = t.importDefaultSpecifier(t.identifier(localName));
 
-          importedPath = importNameToFilename(importedName);
+          importedPath = `date-fns/${importedName}`;
         }
 
         path.insertAfter(t.importDeclaration([spec], t.stringLiteral(importedPath)));

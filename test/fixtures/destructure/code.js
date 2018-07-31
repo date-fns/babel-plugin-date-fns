@@ -1,5 +1,5 @@
 import {
-  distanceInWordsToNow,
+  formatDistance,
   differenceInYears,
   format,
 } from 'date-fns';

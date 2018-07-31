@@ -14,13 +14,13 @@ $ npm i --save-dev babel-plugin-date-fns
 Transforms
 
 ```js
-import { distanceInWordsToNow, differenceInYears, format } from 'date-fns';
+import { formatDistance, differenceInYears, format } from 'date-fns';
 ```
 
 roughly to
 
 ```js
-import distanceInWordsToNow from 'date-fns/distanceInWordsToNow';
+import formatDistance from 'date-fns/formatDistance';
 import differenceInYears from 'date-fns/differenceInYears';
 import format from 'date-fns/format';
 ```
