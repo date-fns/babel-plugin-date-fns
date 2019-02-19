@@ -18,8 +18,8 @@ import { distanceInWordsToNow, differenceInYears, format } from 'date-fns';
 roughly to
 
 ```js
-import distanceInWordsToNow from 'date-fns/distanceInWordsToNow';
-import differenceInYears from 'date-fns/differenceInYears';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import differenceInYears from 'date-fns/difference_in_years';
 import format from 'date-fns/format';
 ```
 
