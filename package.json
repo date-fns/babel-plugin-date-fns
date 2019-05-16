@@ -14,17 +14,18 @@
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
     "prepublish": "npm run build",
-    "test": "mocha --check-leaks --require babel-core/register"
+    "test": "mocha --check-leaks --require @babel/register"
   },
   "dependencies": {
     "lodash.snakecase": "^4.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-tester": "^5.4.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "7.4.4",
+    "babel-plugin-tester": "^6.2.1",
     "date-fns": "^1.29.0",
     "mocha": "^5.2.0"
   },
