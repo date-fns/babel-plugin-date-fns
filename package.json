@@ -13,7 +13,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "mocha --check-leaks --require @babel/register"
   },
   "dependencies": {
