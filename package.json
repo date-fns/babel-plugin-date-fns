@@ -27,7 +27,7 @@
     "@babel/register": "^7.6.2",
     "babel-plugin-tester": "^6.2.1",
     "date-fns": "^1.29.0",
-    "mocha": "^5.2.0"
+    "mocha": "^6.2.2"
   },
   "files": [
     "lib"
