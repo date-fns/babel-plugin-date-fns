@@ -22,7 +22,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.6.2",
-    "babel-plugin-tester": "^6.2.1",
+    "babel-plugin-tester": "^7.0.1",
     "date-fns": "^2.6.0",
     "mocha": "^6.2.2"
   },
