@@ -5,7 +5,7 @@ export default ({ types: t }) => ({
       const { specifiers, source } = node;
       const { value: pkgId } = source;
 
-      if (pkgId !== 'date-fns') {
+      if (pkgId !== 'date-fns' && pkgId !== 'date-fns/locale') {
         return;
       }
 
@@ -17,13 +17,17 @@ export default ({ types: t }) => ({
         const { local, imported } = spec;
         const { name: localName } = local;
 
-        let importedPath = 'date-fns';
+        let importedPath = pkgId;
 
         if (t.isImportSpecifier(spec)) {
-          const { name: importedName } = imported;
+          let { name: importedName } = imported;
           spec = t.importDefaultSpecifier(t.identifier(localName));
 
-          importedPath = `date-fns/${importedName}`;
+          if (pkgId === 'date-fns/locale') {
+            importedName = importedName.replace(/[A-Z]/, '-$&');
+          }
+
+          importedPath = `${pkgId}/${importedName}`;
         }
 
         path.insertAfter(t.importDeclaration([spec], t.stringLiteral(importedPath)));
