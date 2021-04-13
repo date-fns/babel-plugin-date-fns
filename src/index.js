@@ -5,7 +5,7 @@ export default ({ types: t }) => ({
       const { specifiers, source } = node;
       const { value: pkgId } = source;
 
-      if (pkgId !== 'date-fns' && pkgId !== 'date-fns/locale') {
+      if (pkgId !== 'date-fns' && pkgId !== 'date-fns/locale' && pkgId !== 'date-fns/fp') {
         return;
       }
 
